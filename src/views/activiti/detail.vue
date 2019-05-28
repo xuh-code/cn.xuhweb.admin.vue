@@ -30,9 +30,9 @@
       this.name = this.$route.query.name
     },
     computed: {
-      src() {
-        return `${this.actUrl}${this.id}`;
-      }
+      // src() {
+      //   return `${this.actUrl}${this.id}`;
+      // }
     },
     methods: {
       breaks() {

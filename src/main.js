@@ -22,12 +22,15 @@ import {validatenull} from '@/util/validate'
 Vue.prototype.validatenull = validatenull
 Vue.prototype.filterForm = filterForm
 Vue.prototype.vaildData = vaildData
+import AvueUeditor from 'avue-plugin-ueditor'
 
 Vue.use(router)
 
 Vue.use(vueJsonTreeView)
 
 Vue.use(VueAxios, axios)
+
+Vue.use(AvueUeditor)
 
 // 注册全局容器
 Vue.component('basicContainer', basicContainer)

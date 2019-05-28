@@ -2,10 +2,16 @@ export default [
   {
     label: "阿里云图标",
     list: [
+      "icon-biaoti",
+      "icon-computer",
       "icon-quanxianguanli",
       "icon-yonghuguanli",
       "icon-jiaoseguanli",
+      "icon-jiaoseguanli1",
+      "icon-jiaoseguanli2",
       "icon-web-icon-",
+      "icon-line-log",
+      "icon-web-icon-1",
       "icon-xitongguanli",
       "icon-rizhiguanli",
       "icon-navicon-zdgl",
@@ -17,12 +23,24 @@ export default [
       "icon-luyou",
       "icon-msnui-supervise",
       "icon-server",
+      "icon-serverx",
       "icon-wendang",
       "icon-gtsquanjushiwufuwuGTS",
       "icon-caidanguanli",
       "icon-guanwang",
       "icon-guanwangfangwen",
-      "icon-guiji"
+      "icon-guiji",
+      "icon-guiji2",
+      "icon-zhangdanguanli",
+      "icon-zidianguanli",
+      "icon-zuzhi",
+      "icon-xinwen",
+      "icon-lunbotu",
+      "icon-lunbo",
+      "icon-ziyuan",
+      "icon-lianxifangshi",
+      "icon-yejiao",
+      "icon-chanpin"
     ]
   }
 ]

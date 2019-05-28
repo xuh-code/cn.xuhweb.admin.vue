@@ -40,7 +40,7 @@
   import {validatenull} from '@/util/validate';
   import {calcDate} from '@/util/date.js';
   import {getStore} from '@/util/store.js';
-  import SockJS from 'sockjs-client';
+  // import SockJS from 'sockjs-client';
   import Stomp from 'stompjs';
   import store from "@/store";
 
@@ -69,7 +69,7 @@
     },
     mounted() {
       this.init()
-      this.initWebSocket()
+      // this.initWebSocket()
     },
     computed: mapGetters(['userInfo', 'isLock', 'isCollapse', 'website', 'expires_in']),
     props: [],
@@ -110,51 +110,51 @@
           this.$store.commit("SET_EXPIRES_IN", this.expires_in - 10);
         }, 10000);
       },
-      initWebSocket() {
-        this.connection();
-        let self = this;
-        //断开重连机制,尝试发送消息,捕获异常发生时重连
-        this.timer = setInterval(() => {
-          try {
-            self.stompClient.send("test");
-          } catch (err) {
-            console.log("断线了: " + err);
-            self.connection();
-          }
-        }, 5000);
-      },
-      connection() {
-        let token = store.getters.access_token
-        let TENANT_ID = getStore({name: 'tenantId'})
-        let headers = {
-          'Authorization': 'Bearer ' + token
-        }
-        // 建立连接对象
-        this.socket = new SockJS('/act/ws');//连接服务端提供的通信接口，连接以后才可以订阅广播消息和个人消息
-        // 获取STOMP子协议的客户端对象
-        this.stompClient = Stomp.over(this.socket);
+      // initWebSocket() {
+      //   this.connection();
+      //   let self = this;
+      //   //断开重连机制,尝试发送消息,捕获异常发生时重连
+      //   this.timer = setInterval(() => {
+      //     try {
+      //       self.stompClient.send("test");
+      //     } catch (err) {
+      //       console.log("断线了: " + err);
+      //       self.connection();
+      //     }
+      //   }, 5000);
+      // },
+      // connection() {
+      //   let token = store.getters.access_token
+      //   let TENANT_ID = getStore({name: 'tenantId'})
+      //   let headers = {
+      //     'Authorization': 'Bearer ' + token
+      //   }
+      //   // 建立连接对象
+      //   this.socket = new SockJS('/act/ws');//连接服务端提供的通信接口，连接以后才可以订阅广播消息和个人消息
+      //   // 获取STOMP子协议的客户端对象
+      //   this.stompClient = Stomp.over(this.socket);
 
-        // 向服务器发起websocket连接
-        this.stompClient.connect(headers, () => {
-          this.stompClient.subscribe('/task/' + this.userInfo.username + "-" + TENANT_ID + '/remind', (msg) => { // 订阅服务端提供的某个topic;
-            this.$notify({
-              title: "协同提醒",
-              type: 'warning',
-              dangerouslyUseHTMLString: true,
-              message: msg.body + '任务，请及时处理',
-              offset: 60
-            });
-          });
-        }, (err) => {
+      //   // 向服务器发起websocket连接
+      //   this.stompClient.connect(headers, () => {
+      //     this.stompClient.subscribe('/task/' + this.userInfo.username + "-" + TENANT_ID + '/remind', (msg) => { // 订阅服务端提供的某个topic;
+      //       this.$notify({
+      //         title: "协同提醒",
+      //         type: 'warning',
+      //         dangerouslyUseHTMLString: true,
+      //         message: msg.body + '任务，请及时处理',
+      //         offset: 60
+      //       });
+      //     });
+      //   }, (err) => {
 
-        });
-      },
-      disconnect() {
-        if (this.stompClient != null) {
-          this.stompClient.disconnect();
-          console.log("Disconnected");
-        }
-      }
+      //   });
+      // },
+      // disconnect() {
+      //   if (this.stompClient != null) {
+      //     this.stompClient.disconnect();
+      //     console.log("Disconnected");
+      //   }
+      // }
     }
   }
 </script>

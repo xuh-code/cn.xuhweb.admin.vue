@@ -2,7 +2,7 @@
  * 配置参考:
  * https://cli.vuejs.org/zh/config/
  */
-const url = 'http://127.0.0.1:9999'
+const url = 'http://xuh.com:9090'
 module.exports = {
   lintOnSave: true,
   productionSourceMap: false,
@@ -26,64 +26,71 @@ module.exports = {
   // 配置转发代理
   devServer: {
     disableHostCheck: true,
-    port:8080,
+    port:10000,
     proxy: {
       '/auth': {
         target: url,
-        ws: true,
+        ws: false,
         pathRewrite: {
           '^/auth': '/auth'
         }
       },
       '/admin': {
         target: url,
-        ws: true,
+        ws: false,
         pathRewrite: {
           '^/admin': '/admin'
         }
       },
       '/code': {
         target: url,
-        ws: true,
+        ws: false,
         pathRewrite: {
           '^/code': '/code'
         }
       },
-      '/gen': {
+      '/web': {
         target: url,
-        ws: true,
+        ws: false,
         pathRewrite: {
-          '^/gen': '/gen'
-        }
-      },
-      '/daemon': {
-        target: url,
-        ws: true,
-        pathRewrite: {
-          '^/daemon': '/daemon'
-        }
-      },
-      '/job': {
-        target: url,
-        ws: true,
-        pathRewrite: {
-          '^/job': '/job'
-        }
-      },
-      '/tx': {
-        target: url,
-        ws: true,
-        pathRewrite: {
-          '^/tx': '/tx'
-        }
-      },
-      '/act': {
-        target: url,
-        ws: true,
-        pathRewrite: {
-          '^/act': '/act'
+          '^/web': '/web'
         }
       }
+      // '/gen': {
+      //   target: url,
+      //   ws: true,
+      //   pathRewrite: {
+      //     '^/gen': '/gen'
+      //   }
+      // },
+      // '/daemon': {
+      //   target: url,
+      //   ws: true,
+      //   pathRewrite: {
+      //     '^/daemon': '/daemon'
+      //   }
+      // },
+      // '/job': {
+      //   target: url,
+      //   ws: true,
+      //   pathRewrite: {
+      //     '^/job': '/job'
+      //   }
+      // },
+      // '/tx': {
+      //   target: url,
+      //   ws: true,
+      //   pathRewrite: {
+      //     '^/tx': '/tx'
+      //   }
+      // },
+      // '/act': {
+      //   target: url,
+      //   ws: true,
+      //   pathRewrite: {
+      //     '^/act': '/act'
+      //   }
+      // }
     }
   }
 }
