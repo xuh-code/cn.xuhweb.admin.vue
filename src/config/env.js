@@ -3,7 +3,7 @@
 const env = process.env 
 let baseUrl = ''
 // 图表库为avue和pig2套地址
-let iconfontVersion = ['1215953_k4lt5uukp0l']
+let iconfontVersion = ['1215953_fyfst4ujdqe']
 let iconfontUrl = `//at.alicdn.com/t/font_$key.css`
                   //at.alicdn.com/t/font_1215953_xcrlifuep38.js
 let codeUrl = `${window.location.origin}/code`

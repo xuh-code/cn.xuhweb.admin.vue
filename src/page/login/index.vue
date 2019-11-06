@@ -8,7 +8,7 @@
           {{time}}
         </div>
         <img class="img"
-             src="/img/logo.png"
+             src="/img/logo_3.svg"
              alt="">
         <p class="title">{{website.infoTitle}}</p>
         <p>v 1.0.0</p>
@@ -16,7 +16,7 @@
       <div class="login-border">
         <div class="login-main">
           <h4 class="login-title">
-            <el-select
+            <!-- <el-select
               class="login-select animated fadeIn"
               v-model="active"
               @change="handleCommand"
@@ -24,7 +24,7 @@
               size="mini">
               <el-option label="租户1 用户登录" value="1"></el-option>
               <el-option label="租户2 用户登录" value="2"></el-option>
-            </el-select>
+            </el-select> -->
           </h4>
           <userLogin v-if="activeName==='user'"></userLogin>
           <codeLogin v-else-if="activeName==='code'"></codeLogin>
@@ -32,8 +32,8 @@
           <div class="login-menu">
             <a href="#"
                @click.stop="activeName='user'">账号密码</a>
-            <a href="#"
-               @click.stop="activeName='code'">手机号登录</a>
+            <!-- <a href="#"
+               @click.stop="activeName='code'">手机号登录</a> -->
             <a href="#"
                @click.stop="activeName='third'">第三方登录</a>
           </div>
@@ -158,7 +158,7 @@
   }
 
   .login-left .img {
-    width: 140px;
+    width: 300px;
   }
 
   .login-time {
