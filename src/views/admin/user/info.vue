@@ -28,7 +28,7 @@
               <el-form-item label="头像">
                 <el-upload
                   class="avatar-uploader"
-                  action="/admin/file/upload"
+                  action="/admin/sys-file/upload"
                   :headers="headers"
                   :show-file-list="false"
                   :on-success="handleAvatarSuccess">
@@ -36,12 +36,12 @@
                   <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                 </el-upload>
               </el-form-item>
-              <el-form-item label="社交登录"
+              <!-- <el-form-item label="社交登录"
                             prop="social">
                 <a href="#"
                    style="color: blue"
                    @click="handleClick('wechat')">绑定微信</a>
-              </el-form-item>
+              </el-form-item> -->
               <el-form-item>
                 <el-button type="primary"
                            @click="submitForm('ruleForm2')">提交
