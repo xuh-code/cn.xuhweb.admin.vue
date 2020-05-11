@@ -193,7 +193,7 @@ export default {
     handlePermission(row) {
       fetchRoleTree(row.roleId)
         .then(response => {
-          this.checkedKeys = response.data.data
+          this.checkedKeys = response.data
           return fetchMenuTree()
         })
         .then(response => {
@@ -213,6 +213,8 @@ export default {
        * @return 太监节点id数组
        */
     resolveAllEunuchNodeId(json, idArr, temp) {
+      console.log("json:" + json)
+      console.log("idArr:" + idArr)
       for (let i = 0; i < json.length; i++) {
         const item = json[i]
         // 存在子节点，递归遍历;不存在子节点，将json的id添加到临时数组中
