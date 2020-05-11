@@ -7,8 +7,8 @@ export const loginByUsername = (username, password, code, randomStr) => {
   return request({
     url: '/auth/oauth/token',
     headers: {
-      isToken:false,
-      'TENANT_ID': '1',
+      isToken: false,
+      'TENANT-ID': '1',
       'Authorization': 'Basic Y2xvdWQ6Y2xvdWQ='
     },
     method: 'post',
@@ -22,7 +22,7 @@ export const refreshToken = (refresh_token) => {
     url: '/auth/oauth/token',
     headers: {
       'isToken': false,
-      'TENANT_ID': '1',
+      'TENANT-ID': '1',
       'Authorization': 'Basic Y2xvdWQ6Y2xvdWQ=',
     },
     method: 'post',
@@ -35,7 +35,7 @@ export const loginByMobile = (mobile, code) => {
   return request({
     url: '/auth/mobile/token/sms',
     headers: {
-      'TENANT_ID': '1',
+      'TENANT-ID': '1',
       'Authorization': 'Basic Y2xvdWQ6Y2xvdWQ='
     },
     method: 'post',
@@ -48,7 +48,7 @@ export const loginBySocial = (state, code) => {
   return request({
     url: '/auth/mobile/token/social',
     headers: {
-      'TENANT_ID': '1',
+      'TENANT-ID': '1',
       'Authorization': 'Basic Y2xvdWQ6Y2xvdWQ='
     },
     method: 'post',

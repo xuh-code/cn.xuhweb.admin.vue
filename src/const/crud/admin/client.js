@@ -48,15 +48,41 @@ export const tableOption = {
       trigger: 'blur'
     }]
   }, {
+    label: '自动放行',
+    prop: 'autoapprove',
+    align: 'center',
+    type: 'radio',
+    border:true,
+    dicData: DIC.vaild,
+    rules: [{
+      required: true,
+      message: '请选择是否放行',
+      trigger: 'blur'
+    }]
+  }, {
     label: '授权模式',
     prop: 'authorizedGrantTypes',
+    type: 'checkbox',
+    dicUrl: '/admin/dict/type/grant_types',
     align: 'center',
     overHidden: true,
+    row: true,
+    span: 24,
     rules: [{
       required: true,
       message: '请输入授权模式',
       trigger: 'blur'
     }]
+  }, {
+    label: '令牌时效',
+    type: 'number',
+    prop: 'accessTokenValidity',
+    align: 'center'
+  }, {
+    label: '刷新时效',
+    type: 'number',
+    prop: 'refreshTokenValidity',
+    align: 'center'
   }, {
     label: '回调地址',
     prop: 'webServerRedirectUri',
@@ -68,33 +94,14 @@ export const tableOption = {
     align: 'center',
     hide: true
   }, {
-    label: '自动放行',
-    prop: 'autoapprove',
-    align: 'center',
-    type: 'radio',
-    dicData: DIC.vaild,
-    rules: [{
-      required: true,
-      message: '请选择是否放行',
-      trigger: 'blur'
-    }]
-  }, {
-    label: '令牌时效',
-    prop: 'accessTokenValidity',
-    align: 'center',
-  }, {
-    label: '刷新时效',
-    prop: 'refreshTokenValidity',
-    align: 'center',
-  }, {
     label: '扩展信息',
     prop: 'additionalInformation',
     align: 'center',
-    hide: true
-  }, {
-    label: '资源ID',
-    prop: 'resourceIds',
-    align: 'center',
-    hide: true
+    type: 'textarea',
+    placeholder: 'JSON格式数据',
+    hide: true,
+    minRows: 2,
+    row: true,
+    span: 24,
   }]
 }

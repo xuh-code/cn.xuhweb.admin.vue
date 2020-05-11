@@ -1,10 +1,10 @@
 export default {
   title: '佳博环保',
   logo: '佳博环保',
-  key: 'cloud',   //配置主键,目前用于存储
+  key: 'cloud',//配置主键,目前用于存储
   indexTitle: '佳博环保科技管理后台',
   whiteList: ['/login', '/404', '/401', '/lock'], // 配置无权限可以访问的页面
-  whiteTagList: ['/login', '/404', '/401', '/lock' ], // 配置不添加tags页面 （'/advanced-router/mutative-detail/*'——*为通配符）
+  whiteTagList: ['/login', '/404', '/401', '/lock'], // 配置不添加tags页面 （'/advanced-router/mutative-detail/*'——*为通配符）
   lockPage: '/lock',
   tokenTime: 6000,
   infoTitle: '佳博环保科技管理后台',

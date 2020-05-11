@@ -1,29 +1,30 @@
-import {getStore, setStore} from '@/util/store'
-import {isURL} from '@/util/validate'
-import {getUserInfo, loginByMobile, loginBySocial, loginByUsername, logout, refreshToken} from '@/api/login'
-import {deepClone, encryption} from '@/util/util'
+import { getStore, setStore } from '@/util/store'
+import { isURL, validatenull } from '@/util/validate'
+import { getUserInfo, loginByMobile, loginBySocial, loginByUsername, logout, refreshToken } from '@/api/login'
+import { deepClone, encryption } from '@/util/util'
 import webiste from '@/const/website'
-import {GetMenu} from '@/api/admin/menu'
+import { GetMenu } from '@/api/admin/menu'
 
-function addPath(ele, first) {
-  const propsConfig = webiste.menu.props
+function addPath (ele, first) {
+  const menu = webiste.menu
+  const propsConfig = menu.props
   const propsDefault = {
-    label: propsConfig.label || 'label',
+    label: propsConfig.label || 'name',
     path: propsConfig.path || 'path',
     icon: propsConfig.icon || 'icon',
     children: propsConfig.children || 'children'
   }
+  const icon = ele[propsDefault.icon]
+  ele[propsDefault.icon] = validatenull(icon) ? menu.iconDefault : icon
   const isChild = ele[propsDefault.children] && ele[propsDefault.children].length !== 0
-  if (!isChild && first) {
+  if (!isChild) ele[propsDefault.children] = []
+  if (!isChild && first && !isURL(ele[propsDefault.path])) {
     ele[propsDefault.path] = ele[propsDefault.path] + '/index'
-    return
+  } else {
+    ele[propsDefault.children].forEach(child => {
+      addPath(child)
+    })
   }
-  ele[propsDefault.children].forEach(child => {
-    if (!isURL(child[propsDefault.path])) {
-      child[propsDefault.path] = `${ele[propsDefault.path]}/${child[propsDefault.path] ? child[propsDefault.path] : 'index'}`
-    }
-    addPath(child)
-  })
 }
 
 const user = {
@@ -47,7 +48,7 @@ const user = {
   },
   actions: {
     // 根据用户名登录
-    LoginByUsername({commit}, userInfo) {
+    LoginByUsername ({ commit }, userInfo) {
       const user = encryption({
         data: userInfo,
         key: 'xuhcloudxuhwebcn',
@@ -67,7 +68,7 @@ const user = {
       })
     },
     // 根据手机号登录
-    LoginByPhone({commit}, userInfo) {
+    LoginByPhone ({ commit }, userInfo) {
       return new Promise((resolve, reject) => {
         loginByMobile(userInfo.mobile, userInfo.code).then(response => {
           const data = response.data
@@ -82,7 +83,7 @@ const user = {
       })
     },
     // 根据OpenId登录
-    LoginBySocial({commit}, param) {
+    LoginBySocial ({ commit }, param) {
       return new Promise((resolve, reject) => {
         loginBySocial(param.state, param.code).then(response => {
           const data = response.data
@@ -96,21 +97,21 @@ const user = {
         })
       })
     },
-    GetUserInfo({commit}) {
+    GetUserInfo ({ commit }) {
       return new Promise((resolve, reject) => {
         getUserInfo().then((res) => {
           const data = res.data.data || {}
-          commit('SET_USERIFNO', data.sysUser)
+          commit('SET_USER_INFO', data.sysUser)
           commit('SET_ROLES', data.roles || [])
           commit('SET_PERMISSIONS', data.permissions || [])
           resolve(data)
-        }).catch((err) => {
+        }).catch(() => {
           reject()
         })
       })
     },
     // 刷新token
-    RefreshToken({commit, state}) {
+    RefreshToken ({ commit, state }) {
       return new Promise((resolve, reject) => {
         refreshToken(state.refresh_token).then(response => {
           const data = response.data
@@ -125,7 +126,7 @@ const user = {
       })
     },
     // 登出
-    LogOut({commit}) {
+    LogOut ({ commit }) {
       return new Promise((resolve, reject) => {
         logout().then(() => {
           commit('SET_MENU', [])
@@ -144,7 +145,7 @@ const user = {
       })
     },
     // 注销session
-    FedLogOut({commit}) {
+    FedLogOut ({ commit }) {
       return new Promise(resolve => {
         commit('SET_MENU', [])
         commit('SET_PERMISSIONS', [])
@@ -158,17 +159,17 @@ const user = {
       })
     },
     // 获取系统菜单
-    GetMenu({
-              commit
-            }) {
+    GetMenu ({
+      commit
+    }, type) {
       return new Promise(resolve => {
         GetMenu().then((res) => {
           const data = res.data.data
-          let menu = deepClone(data)
+          const menu = deepClone(data)
           menu.forEach(ele => {
             addPath(ele)
           })
-          commit('SET_MENU', menu)
+          commit('SET_MENU', { type, menu })
           resolve(menu)
         })
       })
@@ -200,14 +201,15 @@ const user = {
         type: 'session'
       })
     },
-    SET_USERIFNO: (state, userInfo) => {
+    SET_USER_INFO: (state, userInfo) => {
       state.userInfo = userInfo
     },
-    SET_MENU: (state, menu) => {
-      state.menu = menu
+    SET_MENU: (state, params = {}) => {
+      let { menu, type } = params;
+      if (type !== false) state.menu = menu
       setStore({
         name: 'menu',
-        content: state.menu,
+        content: menu,
         type: 'session'
       })
     },

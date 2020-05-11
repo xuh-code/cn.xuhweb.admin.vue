@@ -44,6 +44,13 @@ export function startJobRa(jobId) {
   })
 }
 
+export function runJobRa(jobId) {
+  return request({
+    url: '/job/sys-job/run-job/' + jobId,
+    method: 'post'
+  })
+}
+
 export function shutDownJobRa(jobId) {
   return request({
     url: '/job/sys-job/shutdown-job/' + jobId,

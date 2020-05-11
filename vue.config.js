@@ -9,11 +9,7 @@ module.exports = {
   chainWebpack: config => {
     // 忽略的打包文件
     config.externals({
-      'vue': 'Vue',
-      'vue-router': 'VueRouter',
-      'vuex': 'Vuex',
-      'axios': 'axios',
-      'element-ui': 'ELEMENT'
+      'axios': 'axios'
     })
     const entry = config.entry('app')
     entry
@@ -56,41 +52,6 @@ module.exports = {
           '^/web': '/web'
         }
       }
-      // '/gen': {
-      //   target: url,
-      //   ws: true,
-      //   pathRewrite: {
-      //     '^/gen': '/gen'
-      //   }
-      // },
-      // '/daemon': {
-      //   target: url,
-      //   ws: true,
-      //   pathRewrite: {
-      //     '^/daemon': '/daemon'
-      //   }
-      // },
-      // '/job': {
-      //   target: url,
-      //   ws: true,
-      //   pathRewrite: {
-      //     '^/job': '/job'
-      //   }
-      // },
-      // '/tx': {
-      //   target: url,
-      //   ws: true,
-      //   pathRewrite: {
-      //     '^/tx': '/tx'
-      //   }
-      // },
-      // '/act': {
-      //   target: url,
-      //   ws: true,
-      //   pathRewrite: {
-      //     '^/act': '/act'
-      //   }
-      // }
     }
   }
 }

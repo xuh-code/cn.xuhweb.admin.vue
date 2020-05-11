@@ -1,18 +1,15 @@
 <template>
   <span class="setting">
     <div
-      class="setting__shade"
       :class="{'setting__shade--show':isShade}"
-      @click="close"
-    ></div>
+      class="setting__shade"
+      @click="close"/>
     <div
-      class="setting__content"
       :class="{'setting__content--show':box}"
-    >
+      class="setting__content">
       <div class="setting__header">版权信息</div>
       <div class="setting__body setting__about">
-        <p>Version：佳博环保科技 1.0.0 </p>
-        <!-- <p>Copyright: Pig4Cloud ©2018-2025</p> -->
+        <p>Version：佳博环保科技 2.0.0 </p>
       </div>
       <div class="setting__header">设置
         <small>(滑动鼠标下面还有更多设置)</small>
@@ -21,8 +18,7 @@
         <div class="setting__body setting__form">
           <avue-form
             v-model="form"
-            :option="option"
-          ></avue-form>
+            :option="option"/>
         </div>
       </el-scrollbar>
     </div>
@@ -31,7 +27,6 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import { validatenull } from '@/util/validate'
 import { option, list } from '@/const/setting/'
 export default {
   data() {
@@ -58,30 +53,30 @@ export default {
   },
   created() {
     setTimeout(() => {
-      this.init();
+      this.init()
     }, 0)
   },
   methods: {
     close() {
-      this.box = false;
-      this.$store.commit('SET_SHADE', false);
+      this.box = false
+      this.$store.commit('SET_SHADE', false)
     },
     set(key) {
-      const ele = this.find(key);
-      this.$store.commit(ele.commit, eval(this.form[ele.key]));
+      const ele = this.find(key)
+      this.$store.commit(ele.commit, eval(this.form[ele.key]))
     },
     find(key) {
       return this.list.filter(ele => ele.key === key)[0]
     },
     init() {
       this.list.forEach(ele => {
-        this.form[ele.key] = validatenull(this[ele.key]) ? 'true' : this[ele.key] + '';
-        this.set(ele.key);
+        this.form[ele.key] = this.validatenull(this[ele.key]) ? 'true' : this[ele.key] + ''
+        this.set(ele.key)
       })
     },
     open() {
-      this.box = true;
-      this.$store.commit('SET_SHADE', true);
+      this.box = true
+      this.$store.commit('SET_SHADE', true)
     }
   }
 }
@@ -91,7 +86,7 @@ export default {
 .setting {
   margin-left: 10px;
   &__icon {
-    color: #fff;
+    color:#fff;
     font-size: 20px;
     transform: rotate(90deg);
   }

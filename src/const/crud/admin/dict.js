@@ -26,6 +26,14 @@ export const tableOption = {
       trigger: 'blur'
     }]
   }, {
+    label: '字典类型',
+    prop: 'system',
+    type: 'radio',
+    dicUrl: '/admin/dict/type/dict_type',
+    addDisplay: false,
+    editDisplay: false,
+    search: true
+  }, {
     label: '备注信息',
     prop: 'remarks'
   }, {
@@ -33,13 +41,12 @@ export const tableOption = {
     label: '创建时间',
     prop: 'createTime',
     type: 'datetime',
-    addVisdiplay: false,
+    addDisplay: false,
     editDisabled: true,
     format: 'yyyy-MM-dd HH:mm',
     valueFormat: 'yyyy-MM-dd HH:mm:ss'
   }]
 }
-
 
 export const tableDictItemOption = {
   border: true,

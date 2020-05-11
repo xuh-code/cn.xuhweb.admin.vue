@@ -17,31 +17,51 @@ export const tableOption = {
     label: '模型ID',
     prop: 'id',
     editDisabled: true,
-    addVisdiplay: false
+    addDisplay: false
   }, {
     fixed: true,
     label: '模型标识',
     prop: 'key',
-    editDisabled: true
+    editDisabled: true,
+    rules: [{
+      required: true,
+      message: '请输入模型标识',
+      trigger: 'blur'
+    }]
   }, {
     label: '流程分类',
     prop: 'category',
-    search: true
+    search: true,
+    rules: [{
+      required: true,
+      message: '请输入流程分类',
+      trigger: 'blur'
+    }]
   }, {
     label: '模型名称',
-    prop: 'name'
+    prop: 'name',
+    rules: [{
+      required: true,
+      message: '请输入模型名称',
+      trigger: 'blur'
+    }]
   },
   {
     label: '描述',
     prop: 'desc',
     hide: true,
     editDisabled: false,
-    addVisdiplay: true
+    addDisplay: true,
+    rules: [{
+      required: true,
+      message: '请输入描述',
+      trigger: 'blur'
+    }]
   }, {
     label: '版本号',
     prop: 'version',
     editDisabled: true,
-    addVisdiplay: false
+    addDisplay: false
   }, {
     width: 150,
     label: '创建时间',
@@ -50,7 +70,7 @@ export const tableOption = {
     format: 'yyyy-MM-dd HH:mm',
     valueFormat: 'timestamp',
     editDisabled: true,
-    addVisdiplay: false
+    addDisplay: false
   }, {
     width: 150,
     label: '最后更新时间',
@@ -59,6 +79,6 @@ export const tableOption = {
     format: 'yyyy-MM-dd HH:mm',
     valueFormat: 'timestamp',
     editDisabled: true,
-    addVisdiplay: false
+    addDisplay: false
   }]
 }
