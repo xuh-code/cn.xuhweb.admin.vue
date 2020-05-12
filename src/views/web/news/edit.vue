@@ -21,12 +21,12 @@
           slot="newsType"
           slot-scope="scope"
         >
-          <avue-crud-select
+          <avue-select
             v-model="news.newsType"
             placeholder="请选择产品类型"
             :dic="dicData"
             :props="typeProps"
-          ></avue-crud-select>
+          ></avue-select>
         </template>
       </avue-form>
     </basic-container>
@@ -54,7 +54,7 @@ export default {
         value: 'id'
       },
       upload: {
-        action: "/admin/file/upload/file",
+        action: "/admin/sys-file/upload/file",
         props: {
           // res: "url", 
           url: "url"

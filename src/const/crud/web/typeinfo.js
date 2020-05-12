@@ -12,13 +12,13 @@ export const tableOption = {
       hide: true,
       span: 24,
       editDisabled: true,
-      addVisdiplay: false,
+      addDisplay: false,
     },
     {
       label: '类型',
       prop: 'type',
       span: 24,
-      solt: true,
+      slot: true,
       type: 'select',
       dicData: [
         {
@@ -44,7 +44,7 @@ export const tableOption = {
       label: '更新时间',
       prop: 'updateTime',
       editDisabled: true,
-      addVisdiplay: false,
+      addDisplay: false,
       span: 24,
       type: 'datetime',
       format: 'yyyy-MM-dd HH:mm',
@@ -54,7 +54,7 @@ export const tableOption = {
       label: '创建时间',
       prop: 'createTime',
       editDisabled: true,
-      addVisdiplay: false,
+      addDisplay: false,
       span: 24,
       hide: true,
       type: 'datetime',

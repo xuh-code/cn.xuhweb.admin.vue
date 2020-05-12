@@ -25,7 +25,7 @@ export const tableOption = {
       datatype: "String",
       listType: 'picture-img',
       loadText: '图片上传中，请稍等',
-      action: '/admin/file/upload/file',
+      action: '/admin/sys-file/upload/file',
       span: 12,
       props: {
         label: "fileName",
@@ -35,8 +35,8 @@ export const tableOption = {
     {
       label: '产品类型',
       prop: 'prodType',
-      formsolt: true,
-      solt: true,
+      formslot: true,
+      slot: true,
       type: 'select',
       span: 12,
       rules: [{
@@ -93,7 +93,7 @@ export const tableOption = {
       span: 24,
       component: 'AvueUeditor',
       overHidden: true,
-      formsolt: true,
+      formslot: true,
     },
   ]
 }

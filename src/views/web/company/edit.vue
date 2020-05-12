@@ -36,7 +36,7 @@ export default {
       web_company_edit: false,
       option: option,
       upload: {
-        action: "/admin/file/upload/file",
+        action: "/admin/sys-file/upload/file",
         props: {
           // res: "url", 
           url: "url"

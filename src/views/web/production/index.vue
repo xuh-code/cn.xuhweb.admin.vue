@@ -64,14 +64,14 @@
           slot-scope="scope"
         >
           <span>
-            <el-tag>{{scop.row.prodTypeTitle}}</el-tag>
+            <el-tag>{{scope.row.prodTypeTitle}}</el-tag>
           </span>
         </template>
         <template
           slot="author"
           slot-scope="scope"
         >
-          <el-tag>{{scop.row.author}}</el-tag>
+          <el-tag>{{scope.row.author}}</el-tag>
         </template>
       </avue-crud>
     </basic-container>

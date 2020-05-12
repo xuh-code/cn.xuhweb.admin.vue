@@ -10,7 +10,7 @@ export const tableOption = {
       label: '主键',
       prop: 'id',
       editDisabled: true,
-      addVisdiplay: false,
+      addDisplay: false,
       span: 24,
     },
     {
@@ -38,7 +38,7 @@ export const tableOption = {
     {
       label: '父标题',
       prop: 'parentId',
-      addVisdiplay: false,
+      addDisplay: false,
       editVisdisplay: false,
       viewVisdiplay: false,
       span: 24,
@@ -49,10 +49,10 @@ export const tableOption = {
     {
       label: '父标题',
       prop: 'parentTitle',
-      formsolt: true,
+      formslot: true,
       slot: true,
       hidden: true,
-      addVisdiplay: true,
+      addDisplay: true,
       editVisdisplay: true,
       span: 24,
     },

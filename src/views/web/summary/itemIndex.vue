@@ -25,20 +25,20 @@
             slot="parentTitle"
             slot-scope="scope"
           >
-            {{scop.row.parentTitle}}
+            {{scope.row.parentTitle}}
           </template>
 
           <template
             slot-scope="scope"
             slot="parentTitleForm"
           >
-            <avue-crud-select
+            <avue-select
               v-model="scope.row.parentId"
               type="select"
               placeholder="请选择父节点"
               :props="defaultProps"
               :dic="summaryList"
-            ></avue-crud-select>
+            ></avue-select>
           </template>
         </avue-crud>
       </div>

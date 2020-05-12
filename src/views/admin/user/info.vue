@@ -227,7 +227,7 @@ export default {
     },
     handleAvatarSuccess(res, file) {
       this.avatarUrl = URL.createObjectURL(file.raw)
-      this.ruleForm2.avatar = res.data.bucketName + '-' + res.data.fileName
+      this.ruleForm2.avatar = res.data.fileName
     }
   }
 }

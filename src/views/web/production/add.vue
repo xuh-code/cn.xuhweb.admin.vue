@@ -21,12 +21,12 @@
           slot="prodType"
           slot-scope="scope"
         >
-          <avue-crud-select
+          <avue-select
             v-model="production.prodType"
             placeholder="请选择产品类型"
             :dic="dicData"
             :props="typeProps"
-          ></avue-crud-select>
+          ></avue-select>
         </template>
         <!-- <template slot="prodTypeForm">
 
@@ -51,7 +51,7 @@ export default {
       tableOption: tableOption,
       option: tableOption,
       upload: {
-        action: "/admin/file/upload/file",
+        action: "/admin/sys-file/upload/file",
         props: {
           // res: "url", 
           url: "url"

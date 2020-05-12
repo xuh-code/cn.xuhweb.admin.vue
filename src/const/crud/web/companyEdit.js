@@ -45,10 +45,10 @@ export const option = {
     {
       label: '介绍',
       prop: 'content',
-      solt: true,
-      formsolt: true,
+      slot: true,
+      formslot: true,
       component: 'AvueUeditor',
-      action: '/admin/file/upload/file',
+      action: '/admin/sys-file/upload/file',
       span: 24,
     },
     {

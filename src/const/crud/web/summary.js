@@ -13,7 +13,7 @@ export const tableOption = {
       hide: true,
       span: 24,
       editDisabled: true,
-      addVisdiplay: false,
+      addDisplay: false,
     },
     {
       label: '标题',
@@ -27,7 +27,7 @@ export const tableOption = {
       span: 24,
       component: 'AvueUeditor',
       overHidden: true,
-      formsolt: true,
+      formslot: true,
       rules: [{
         max: 500,
         message: '长度不能大于500',
@@ -44,7 +44,7 @@ export const tableOption = {
       datatype: "String",
       listType: 'picture-img',
       loadText: '图片上传中，请稍等',
-      action: '/admin/file/upload/file',
+      action: '/admin/sys-file/upload/file',
       span: 24,
       props: {
         label: "fileName",
@@ -55,7 +55,7 @@ export const tableOption = {
       label: '存在子项',
       prop: 'child',
       span: 24,
-      solt: true,
+      slot: true,
       type: 'select',
       dicData: [
         {
@@ -70,7 +70,7 @@ export const tableOption = {
     {
       label: '显示',
       prop: 'selectShow',
-      solt: true,
+      slot: true,
       type: 'select',
       span: 24,
       rules: [{
@@ -93,7 +93,7 @@ export const tableOption = {
       label: '更新时间',
       prop: 'updateTime',
       editDisabled: true,
-      addVisdiplay: false,
+      addDisplay: false,
       span: 24,
       hide: true,
       type: 'datetime',
@@ -104,7 +104,7 @@ export const tableOption = {
       label: '创建时间',
       prop: 'createTime',
       editDisabled: true,
-      addVisdiplay: false,
+      addDisplay: false,
       span: 24,
       hide: true,
       type: 'datetime',
