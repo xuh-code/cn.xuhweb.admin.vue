@@ -66,18 +66,14 @@ export const tableOption = {
     },
     {
       label: '淘宝链接',
-      prop: 'tUrl',
+      prop: 'turl',
       span: 12,
       overHidden: true,
     },
     {
       label: '产品介绍',
       prop: 'content',
-      slot: true,
-      span: 24,
-      component: 'AvueUeditor',
       overHidden: true,
-      formslot: true,
     },
     {
       label: '操作用户',

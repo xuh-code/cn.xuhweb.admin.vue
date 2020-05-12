@@ -56,11 +56,7 @@ export const tableOption = {
 	  {
       label: '内容',
       prop: 'content',
-      slot: true,
-      span: 24,
-      component: 'AvueUeditor',
       overHidden: true,
-      formslot: true,
     },
 	  {
       label: '作者',

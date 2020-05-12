@@ -69,7 +69,7 @@ export default {
     }
   },
   created() {
-    this.web_production_add = this.permissions.web_production_add;
+    this.web_production_add = this.permissions.web_production_edit;
     this.username = this.userInfo.username;
     this.getList(this.page);
     this.getProduction();
@@ -116,6 +116,7 @@ export default {
           message: '修改成功',
           type: 'success',
         })
+        this.$router.push({ path: '/web/production/index' });
       })
     },
 

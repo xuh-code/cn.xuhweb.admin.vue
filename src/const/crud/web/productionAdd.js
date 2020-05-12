@@ -67,7 +67,7 @@ export const tableOption = {
     },
     {
       label: '淘宝链接',
-      prop: 'tUrl',
+      prop: 'turl',
       span: 12,
     },
     {
