@@ -80,6 +80,7 @@ export default {
           type: 'success'
         })
         this.getConpany();
+        this.$router.push({ path: '/web/company/index' });
       })
     },
 

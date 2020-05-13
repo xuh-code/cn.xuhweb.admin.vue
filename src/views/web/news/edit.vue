@@ -109,7 +109,8 @@ export default {
           message: '修改成功',
           type: 'success'
         })
-        this.refreshChange();
+        
+        this.$router.push({ path: '/web/news/index' });
       })
     },
     /**

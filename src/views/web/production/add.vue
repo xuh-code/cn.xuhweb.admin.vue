@@ -115,7 +115,7 @@ export default {
           type: 'success'
         })
         done()
-        this.getList(this.page)
+        this.$router.push({ path: '/web/production/index' });
       })
     },
 
